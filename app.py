@@ -205,7 +205,13 @@ if is_indian and not raw_ticker.endswith(".NS"):
 st.caption(f"Currently searching NSE India: **{ticker}**")
 
 # 3. Question Box & Button
-question = st.text_area("What would you like to know?", value="Should I buy this stock?")
+# Added key="user_question" to make it unique
+question = st.text_area(
+    "What would you like to know?", 
+    value="Should I buy this stock?",
+    key="user_question" 
+)
+
 analyze_btn = st.button("Analyze Stock")
 
 if st.button("Analyze Stock"):
@@ -232,5 +238,6 @@ if st.button("Analyze Stock"):
                 )
         except Exception as e:
             st.error(f"An error occurred: {e}")
+
 
 
