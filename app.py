@@ -169,6 +169,22 @@ def create_app(api_key: str):
 
 # --- 4. STREAMLIT UI ---
 st.set_page_config(page_title="AI Stock Analyst", page_icon="📈")
+# This hides the GitHub icon and the "Made with Streamlit" footer
+hide_github_icon = """
+    <style>
+    #GithubIcon {
+        visibility: hidden;
+    }
+    footer {
+        visibility: hidden;
+    }
+    header {
+        visibility: hidden;
+    }
+    </style>
+"""
+st.markdown(hide_github_icon, unsafe_allow_html=True)
+
 st.title("🤖 AI Fundamental Analyst")
 st.caption("Using LangGraph + Groq Llama 3.3")
 
@@ -237,6 +253,7 @@ if st.button("Analyze Stock"):
                 )
         except Exception as e:
             st.error(f"An error occurred: {e}")
+
 
 
 
