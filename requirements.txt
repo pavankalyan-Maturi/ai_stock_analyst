@@ -1,8 +1,8 @@
-langgraph,
-langchain-groq,
-yfinance,
-ta,
-pandas,
-streamlit,
-fpdf,
+langgraph
+langchain-groq
+yfinance
+ta
+pandas
 python-dotenv
+streamlit
+fpdf
