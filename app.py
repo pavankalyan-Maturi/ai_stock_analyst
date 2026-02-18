@@ -208,9 +208,6 @@ st.caption(f"Currently searching NSE India: **{ticker}**")
 question = st.text_area("What would you like to know?", value="Should I buy this stock?")
 analyze_btn = st.button("Analyze Stock")
 
-
-question = st.text_area("What would you like to know?", value="Should I buy this stock?")
-
 if st.button("Analyze Stock"):
     if not api_key:
         st.warning("Please enter your Groq API Key in the sidebar.")
@@ -235,4 +232,5 @@ if st.button("Analyze Stock"):
                 )
         except Exception as e:
             st.error(f"An error occurred: {e}")
+
 
