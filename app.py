@@ -185,30 +185,29 @@ with st.sidebar:
         api_key = st.text_input("Enter Groq API Key", type="password")
         st.info("Get your key at [console.groq.com](https://console.groq.com)")
 
-
-with st.sidebar:
-    st.header("Market Settings")
-    is_indian_market = st.checkbox("Indian Market (Auto-add .NS)", value=True)
-
-# --- Side-by-Side Ticker & Market Choice ---
-col1, col2 = st.columns([3, 1])  # col1 is 3 times wider than col2
+# --- Side-by-Side Layout from your Screenshot ---
+col1, col2 = st.columns([4, 1]) 
 
 with col1:
     raw_ticker = st.text_input("Enter Ticker", value="ONGC").upper().strip()
 
 with col2:
-    # Adding a bit of padding to align the checkbox with the input box
-    st.write("##") 
+    # Use HTML to align the checkbox perfectly with the text box
+    st.markdown("<div style='padding-top: 28px;'></div>", unsafe_allow_html=True)
     is_indian = st.checkbox("Indian (.NS)", value=True)
 
-# Apply the auto-complete logic
+# 1. Apply the .NS Logic
 ticker = raw_ticker
 if is_indian and not raw_ticker.endswith(".NS"):
     ticker = f"{raw_ticker}.NS"
 
-# Small feedback text
-if is_indian:
-    st.caption(f"Currently searching NSE India: **{ticker}**")
+# 2. Status Caption (Matches your screenshot)
+st.caption(f"Currently searching NSE India: **{ticker}**")
+
+# 3. Question Box & Button
+question = st.text_area("What would you like to know?", value="Should I buy this stock?")
+analyze_btn = st.button("Analyze Stock")
+
 
 question = st.text_area("What would you like to know?", value="Should I buy this stock?")
 
