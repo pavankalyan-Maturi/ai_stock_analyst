@@ -212,7 +212,6 @@ question = st.text_area(
     key="user_question" 
 )
 
-analyze_btn = st.button("Analyze Stock")
 
 if st.button("Analyze Stock"):
     if not api_key:
@@ -238,6 +237,7 @@ if st.button("Analyze Stock"):
                 )
         except Exception as e:
             st.error(f"An error occurred: {e}")
+
 
 
 
